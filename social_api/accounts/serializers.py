@@ -11,3 +11,6 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ['id', 'username', 'password', 'displayname', 'bio']
+        extra_kwargs = {
+            'password': {'write_only': True} # password is not included in serializer response
+        }
